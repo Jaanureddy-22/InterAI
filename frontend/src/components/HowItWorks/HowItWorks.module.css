@@ -1,0 +1,375 @@
+.howItWorks {
+    position: relative;
+    padding: 120px 8%;
+    background: #0b1020;
+    color: white;
+    overflow: hidden;
+}
+
+/* Background glow */
+
+.howItWorks::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: #7c5cfc;
+    border-radius: 50%;
+    filter: blur(180px);
+    opacity: 0.12;
+    top: 10%;
+    left: -180px;
+    pointer-events: none;
+}
+
+.howItWorks::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #00c6ff;
+    border-radius: 50%;
+    filter: blur(170px);
+    opacity: 0.10;
+    bottom: -150px;
+    right: -100px;
+    pointer-events: none;
+}
+
+/* Header */
+
+.header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 80px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+
+    background: rgba(124, 92, 252, 0.12);
+    border: 1px solid rgba(124, 92, 252, 0.3);
+
+    color: #a99aff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    font-weight: 800;
+}
+
+.header h2 span {
+    color: #7c5cfc;
+}
+
+.header p {
+    color: #9da7bb;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Steps */
+
+.steps {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1050px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Step wrapper */
+
+.stepWrapper {
+    position: relative;
+}
+
+/* Card */
+
+.stepCard {
+    position: relative;
+
+    min-height: 330px;
+
+    padding: 32px 25px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    overflow: hidden;
+}
+
+/* Card glow */
+
+.stepCard::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    background: #7c5cfc;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.08;
+
+    top: -60px;
+    right: -50px;
+
+    transition: opacity 0.35s ease;
+}
+
+.stepCard:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(124, 92, 252, 0.6);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(124, 92, 252, 0.12);
+}
+
+.stepCard:hover::before {
+    opacity: 0.25;
+}
+
+/* Number */
+
+.number {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #6f7890;
+
+    letter-spacing: 1px;
+}
+
+/* Icon */
+
+.icon {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #7c5cfc,
+        #5d45d8
+    );
+
+    color: white;
+
+    font-size: 27px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 12px 30px rgba(124, 92, 252, 0.25);
+
+    transition: transform 0.35s ease;
+}
+
+.stepCard:hover .icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* Text */
+
+.stepCard h3 {
+    position: relative;
+
+    font-size: 21px;
+
+    margin: 0 0 15px;
+
+    color: #ffffff;
+}
+
+.stepCard p {
+    position: relative;
+
+    color: #9da7bb;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    margin: 0;
+}
+
+/* Connector */
+
+.connector {
+    position: absolute;
+
+    top: 50%;
+    right: -22px;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #11182b;
+
+    border: 1px solid rgba(124, 92, 252, 0.35);
+
+    color: #7c5cfc;
+
+    z-index: 5;
+
+    animation: connectorPulse 2s infinite;
+}
+
+/* Bottom message */
+
+.bottomMessage {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+
+    margin: 70px auto 0;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: rgba(124, 92, 252, 0.07);
+
+    border: 1px solid rgba(124, 92, 252, 0.15);
+}
+
+.bottomMessage h3 {
+    margin: 0 0 10px;
+
+    font-size: 23px;
+}
+
+.bottomMessage p {
+    margin: 0;
+
+    color: #9da7bb;
+
+    line-height: 1.6;
+}
+
+/* Animation */
+
+@keyframes connectorPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(124, 92, 252, 0.25);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(124, 92, 252, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 92, 252, 0);
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .connector {
+        display: none;
+    }
+
+    .stepCard {
+        min-height: 300px;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .howItWorks {
+        padding: 90px 20px;
+    }
+
+    .header {
+        margin-bottom: 55px;
+    }
+
+    .header h2 {
+        font-size: 36px;
+    }
+
+    .header p {
+        font-size: 16px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .stepCard {
+        min-height: auto;
+        padding: 30px 25px;
+    }
+
+    .bottomMessage {
+        margin-top: 50px;
+        padding: 25px 20px;
+    }
+
+}

@@ -1,0 +1,379 @@
+.page {
+    min-height: 100vh;
+
+    background: #080b16;
+
+    color: white;
+}
+
+.header {
+    height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.logo span {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #10b981;
+}
+
+.backButton {
+    padding: 8px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #8e98aa;
+
+    cursor: pointer;
+}
+
+.container {
+    width: min(1100px, 90%);
+
+    margin: auto;
+
+    padding: 65px 0;
+}
+
+.top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+.badge {
+    color: #10b981;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.top h1 {
+    margin: 10px 0;
+
+    font-size: 45px;
+
+    letter-spacing: -1px;
+}
+
+.top h1 span {
+    color: #10b981;
+}
+
+.top p {
+    max-width: 600px;
+
+    margin: 0;
+
+    color: #8993a6;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.score {
+    min-width: 150px;
+
+    height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 8px solid #10b981;
+
+    background: rgba(16, 185, 129, 0.04);
+}
+
+.score strong {
+    font-size: 38px;
+}
+
+.score span {
+    color: #697487;
+
+    font-size: 12px;
+}
+
+.score small {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 7px;
+
+    color: #10b981;
+
+    font-size: 9px;
+}
+
+.section {
+    padding: 28px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.sectionTitle h2 {
+    margin: 0 0 5px;
+
+    font-size: 18px;
+}
+
+.sectionTitle p {
+    margin: 0 0 25px;
+
+    color: #697487;
+
+    font-size: 11px;
+}
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px 40px;
+}
+
+.skillHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: #b6becb;
+
+    font-size: 12px;
+}
+
+.skillHeader strong {
+    color: #10b981;
+}
+
+.progress {
+    height: 6px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #10b981;
+}
+
+.columns {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.infoCard {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.cardTitle {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.cardTitle svg {
+    color: #10b981;
+}
+
+.cardTitle h2 {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.infoCard ul {
+    padding-left: 20px;
+
+    margin-bottom: 0;
+}
+
+.infoCard li {
+    margin: 12px 0;
+
+    color: #8a94a6;
+
+    font-size: 13px;
+}
+
+.recommendation {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background: rgba(16, 185, 129, 0.06);
+
+    border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.recommendIcon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: rgba(16, 185, 129, 0.12);
+
+    color: #10b981;
+}
+
+.recommendation h3 {
+    margin: 0 0 7px;
+
+    font-size: 13px;
+}
+
+.recommendation p {
+    margin: 0;
+
+    color: #8993a6;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.interviewButton {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px auto 0;
+
+    padding: 13px 20px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: #10b981;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.interviewButton:hover {
+    background: #059669;
+}
+
+@media (max-width: 700px) {
+
+    .top {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .score {
+        align-self: center;
+    }
+
+    .skills,
+    .columns {
+        grid-template-columns: 1fr;
+    }
+
+    .top h1 {
+        font-size: 36px;
+    }
+}

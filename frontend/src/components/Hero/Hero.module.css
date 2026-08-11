@@ -1,0 +1,425 @@
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 150px 7% 80px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #080b16;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+
+.backgroundGlow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: 100px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #4f46e5;
+
+    border-radius: 50%;
+
+    filter: blur(200px);
+
+    opacity: 0.13;
+
+    pointer-events: none;
+}
+
+/* HERO CONTENT */
+
+.heroContent {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(79, 70, 229, 0.10);
+
+    border: 1px solid rgba(79, 70, 229, 0.25);
+
+    color: #a5a0ff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+.badge span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #6366f1;
+
+    box-shadow: 0 0 10px #6366f1;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(48px, 6vw, 76px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #6366f1;
+}
+
+.description {
+    max-width: 680px;
+
+    margin: 28px auto 0;
+
+    color: #9ca6ba;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.primaryButton,
+.secondaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 13px 21px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.primaryButton {
+    background: #4f46e5;
+
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.20);
+}
+
+.primaryButton:hover {
+    background: #4338ca;
+
+    transform: translateY(-2px);
+}
+
+.secondaryButton {
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: #c4cad7;
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+}
+
+.trust {
+    margin-top: 18px;
+
+    color: #687286;
+
+    font-size: 11px;
+}
+
+/* PRODUCT PREVIEW */
+
+.preview {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 100%);
+
+    margin-top: 75px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.40),
+        0 0 50px rgba(79, 70, 229, 0.08);
+
+    overflow: hidden;
+}
+
+/* PREVIEW HEADER */
+
+.previewHeader {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.previewHeader span {
+    display: block;
+
+    color: #6366f1;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 4px;
+}
+
+.previewHeader strong {
+    font-size: 13px;
+
+    color: #dce1ed;
+}
+
+.status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #8d98aa;
+
+    font-size: 11px;
+}
+
+.status span {
+    width: 7px;
+    height: 7px;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #35c979;
+}
+
+/* CARDS */
+
+.previewBody {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    padding: 22px;
+}
+
+.previewCard {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cardIcon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: rgba(99, 102, 241, 0.12);
+
+    color: #8c89ff;
+
+    font-size: 14px;
+}
+
+.previewCard span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #747f94;
+
+    font-size: 10px;
+}
+
+.previewCard strong {
+    color: #dce1ed;
+
+    font-size: 14px;
+}
+
+/* PROGRESS */
+
+.progressSection {
+    padding: 5px 22px 24px;
+}
+
+.progressHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #8f99ad;
+
+    font-size: 11px;
+}
+
+.progressHeader strong {
+    color: #a5a0ff;
+}
+
+.progress {
+    width: 100%;
+    height: 6px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    overflow: hidden;
+}
+
+.progress div {
+    width: 78%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #6366f1;
+}
+
+.progressFooter {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 9px;
+
+    color: #5f6a7d;
+
+    font-size: 9px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 120px 20px 60px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -1px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .previewBody {
+        grid-template-columns: 1fr;
+    }
+
+    .preview {
+        margin-top: 55px;
+    }
+}
