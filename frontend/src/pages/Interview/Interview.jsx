@@ -1,87 +1,57 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaCheck,
-  FaClock,
-  FaRobot,
-} from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 import styles from "./Interview.module.css";
 
 const questions = [
-  {
-    question: "Tell me about yourself and your background.",
-    category: "Introduction",
-  },
-  {
-    question: "What are your strongest technical skills?",
-    category: "Technical Skills",
-  },
-  {
-    question: "Tell me about a project you have worked on recently.",
-    category: "Project Experience",
-  },
-  {
-    question: "How do you approach solving a difficult problem?",
-    category: "Problem Solving",
-  },
-  {
-    question: "Where do you see yourself professionally in the next few years?",
-    category: "Career",
-  },
+  "Tell me about yourself.",
+  "What are your strengths and weaknesses?",
+  "Tell me about a project you have worked on.",
+  "What challenges did you face in your project and how did you solve them?",
+  "Where do you see yourself in the next five years?",
 ];
 
 function Interview() {
-  const location = useLocation();
   const navigate = useNavigate();
 
-  const interviewType = location.state?.type || "General";
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(
-    Array(questions.length).fill("")
-  );
+  const [answer, setAnswer] = useState("");
+  const [answers, setAnswers] = useState([]);
 
-  const question = questions[currentQuestion];
-
-  const handleAnswer = (event) => {
-    const updatedAnswers = [...answers];
-
-    updatedAnswers[currentQuestion] = event.target.value;
-
-    setAnswers(updatedAnswers);
-  };
+  const totalQuestions = questions.length;
 
   const handleNext = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (!answer.trim()) {
+      alert("Please enter your answer before continuing.");
+      return;
     }
-  };
 
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
-
-  const handleSubmit = () => {
-    navigate("/interview-report", {
-      state: {
-        type: interviewType,
-        answers,
+    const updatedAnswers = [
+      ...answers,
+      {
+        question: questions[currentQuestion],
+        answer: answer,
       },
-    });
+    ];
+
+    setAnswers(updatedAnswers);
+    setAnswer("");
+
+    if (currentQuestion === totalQuestions - 1) {
+      // Temporary report navigation
+      navigate("/interview-report");
+      return;
+    }
+
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   const progress =
-    ((currentQuestion + 1) / questions.length) * 100;
+    ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
 
-      {/* HEADER */}
+      {/* Header */}
 
       <header className={styles.header}>
 
@@ -91,132 +61,102 @@ function Interview() {
         </div>
 
         <div className={styles.interviewInfo}>
-          <span>{interviewType}</span>
-          <strong>AI Interview</strong>
-        </div>
-
-        <div className={styles.timer}>
-          <FaClock />
-          15:00
+          <span>AI Interview</span>
+          <span>
+            Question {currentQuestion + 1} / {totalQuestions}
+          </span>
         </div>
 
       </header>
 
-      {/* PROGRESS */}
+      {/* Main */}
 
-      <div className={styles.progressContainer}>
-
-        <div className={styles.progressInfo}>
-          <span>
-            Question {currentQuestion + 1} of {questions.length}
-          </span>
-
-          <span>{Math.round(progress)}%</span>
-        </div>
-
-        <div className={styles.progress}>
-          <div style={{ width: `${progress}%` }} />
-        </div>
-
-      </div>
-
-      {/* CONTENT */}
-
-      <section className={styles.container}>
-
-        <div className={styles.questionNumber}>
-          Question {String(currentQuestion + 1).padStart(2, "0")}
-        </div>
+      <main className={styles.container}>
 
         <div className={styles.questionCard}>
 
           <div className={styles.aiIcon}>
-            <FaRobot />
+            I
           </div>
 
-          <div className={styles.questionContent}>
-
-            <span className={styles.category}>
-              {question.category}
-            </span>
-
-            <h1>{question.question}</h1>
-
-            <p>
-              Take a moment to think about your answer.
-              Explain your thoughts clearly and use examples
-              wherever possible.
-            </p>
-
+          <div className={styles.aiLabel}>
+            INTERA AI
           </div>
+
+          <h1>
+            {questions[currentQuestion]}
+          </h1>
+
+          <p className={styles.instruction}>
+            Take your time and give a clear answer.
+          </p>
 
         </div>
 
-        {/* ANSWER */}
+        {/* Answer */}
 
         <div className={styles.answerSection}>
 
-          <div className={styles.answerHeader}>
-            <label>Your Answer</label>
-
-            <span>
-              {answers[currentQuestion].length} characters
-            </span>
-          </div>
+          <label>
+            Your Answer
+          </label>
 
           <textarea
-            value={answers[currentQuestion]}
-            onChange={handleAnswer}
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
             placeholder="Type your answer here..."
           />
 
-          <div className={styles.answerHint}>
-            💡 Tip: Structure your answer clearly and give
-            specific examples when possible.
+          <div className={styles.answerBottom}>
+
+            <span>
+              {answer.length} characters
+            </span>
+
+            <button
+              onClick={handleNext}
+              className={styles.submitButton}
+            >
+              {currentQuestion === totalQuestions - 1
+                ? "Submit Interview"
+                : "Submit Answer"}
+
+              <span>→</span>
+            </button>
+
           </div>
 
         </div>
 
-        {/* NAVIGATION */}
+        {/* Progress */}
 
-        <div className={styles.navigation}>
+        <div className={styles.progressSection}>
 
-          <button
-            className={styles.previous}
-            onClick={handlePrevious}
-            disabled={currentQuestion === 0}
-          >
-            <FaArrowLeft />
-            Previous
-          </button>
+          <div className={styles.progressText}>
+            <span>Interview Progress</span>
 
-          {currentQuestion === questions.length - 1 ? (
+            <span>
+              {Math.round(progress)}%
+            </span>
+          </div>
 
-            <button
-              className={styles.submit}
-              onClick={handleSubmit}
-            >
-              Submit Interview
-              <FaCheck />
-            </button>
-
-          ) : (
-
-            <button
-              className={styles.next}
-              onClick={handleNext}
-            >
-              Next Question
-              <FaArrowRight />
-            </button>
-
-          )}
+          <div className={styles.progressBar}>
+            <div
+              className={styles.progress}
+              style={{ width: `${progress}%` }}
+            />
+          </div>
 
         </div>
 
-      </section>
+        <p className={styles.notice}>
+          Your answers will be analyzed by INTERA after
+          completing the interview.
+        </p>
 
-    </main>
+      </main>
+
+    </div>
   );
 }
 
